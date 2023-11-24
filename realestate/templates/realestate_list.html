@@ -1,0 +1,59 @@
+{% extends './main.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <style>
+        body {
+            background-color: #f3f3f3;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .real-estate-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
+        .real-estate-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .real-estate-container ol {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .real-estate-container li {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .real-estate-container a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .real-estate-container a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    <div class="real-estate-container">
+        <h2>Real Estate</h2>
+        <ol>
+            <li>The ache for home lives in all of us. The safe place where we can go as we are and not be questioned</li>
+            <li>Real estate cannot be lost or stolen, nor can it be carried away. 
+                Purchased with common sense, paid for in full, and managed with reasonable care, it is about the safest investment in the world.</li>
+            <li>Home is a name, a word, it is a strong one; stronger than magician ever spoke, or spirit ever answered to, in the strongest conjuration</li>
+        </ol>
+        <a href="{% url 'index_page' %}">Back Home</a>
+    </div>
+{% endblock content %}

@@ -1,0 +1,49 @@
+{% extends './main.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-wvfXp8c/Z9nPR+Zl/eR5d9BkpgSr+/MIbXzI1kR6DeVetan9gDz+3ZofP2LJZGpU8CjGFlvqUq0WfMhLs0K9Cg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- Your form fields go here -->
+        <button type="button" class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Add Estate
+          </button></a>
+    
+    </form>
+
+    {% if message %}
+        {{ message }}
+    {% endif %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for estate in estate %}
+                        <tr>
+                            <td scope="row">{{estate.id}}</td>
+                            <td scope="row">{{estate.name}}</td>
+                            <td scope="row">{{estate.location}}</td>
+                            <td scope="row">{{estate.description}}</td>
+                            <td>
+                                <a href="{% url 'edit_estate_page' estate.id %}"><i class="material-icons ms-auto text-dark cursor-pointer fa-bounce" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Card">edit</i></a> | 
+                                <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="{% url 'delete_estate_page' estate.id %}">
+                                <i onclick="return confirm('Are you sure you want to delete this Estate?')"class="material-icons text-sm me-2">delete</i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        <a href="{% url 'realestate_list_page' %}">Real Estate List</a>
+{% endblock content %}

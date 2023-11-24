@@ -1,0 +1,36 @@
+{% extends './main.html' %}
+{% load static %}
+{% block content %}
+    <style>
+        /* Define the Segoe Script font family */
+        @font-face {
+            font-family: 'Segoe Script';
+            src: local('Segoe Script'), url(https://fonts.googleapis.com/css?family=Segoe+Script&display=swap) format('woff2');
+        }
+
+        h1 {
+            text-transform: uppercase;
+            font-weight: bold;
+            background: linear-gradient(to right, #ffffff, #000000);
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        h2 {
+            color: rgb(29, 161, 40);
+            font-family: 'Segoe Script', sans-serif;
+            font-size: medium;
+            /* If intended to have multiple colors, use a valid format like linear-gradient or separate property values */
+            /* color: rgb(29, 161, 40), rgb(0, 195, 255); */
+        }
+    </style>
+
+    <div style="text-align: center;">
+        <h1>WELCOME TO REAL ESTATE</h1>
+        <h2>Unlocking Doors to Your Dream Home</h2>
+        <i class="bi bi-house-door" style="font-size: 3rem;"></i>
+    </div>
+<img src="{% static '/images/house_1.jpg' %}" alt="" width="15px" height="650px">
+{% endblock %}
+
